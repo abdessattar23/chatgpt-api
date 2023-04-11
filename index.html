@@ -167,11 +167,11 @@
       async function getApiUrl() {
         if (getApiUrl.url) return getApiUrl.url;
         try {
-          const response = await fetch("/api/completions", {
+          const response = await fetch("https://chat.longern.com/api/completions", {
             method: "OPTIONS",
           });
           if (response.status !== 200) throw new Error();
-          getApiUrl.url = "/api/completions";
+          getApiUrl.url = "https://chat.longern.com/api/completions";
           const corsHeaders = (
             response.headers.get("Access-Control-Allow-Headers") || ""
           ).toLowerCase();
