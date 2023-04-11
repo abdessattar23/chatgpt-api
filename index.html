@@ -157,7 +157,7 @@
         let token = localStorage.getItem("openai-token");
         if (token) return token;
 
-        token = "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";
+        token = "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";
         if (token) {
           localStorage.setItem("openai-token", token);
           return token;
@@ -185,7 +185,7 @@
 
       async function complete(messages, token, progressCallback) {
         const headers = { "Content-Type": "application/json" };
-        if (getApiUrl.tokenRequired) headers.Authorization = `Bearer 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`;
+        if (getApiUrl.tokenRequired) headers.Authorization = `Bearer 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`;
         const response = await fetch(await getApiUrl(), {
           method: "POST",
           headers: headers,
