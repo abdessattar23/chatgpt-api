@@ -157,21 +157,20 @@
         let token = localStorage.getItem("openai-token");
         if (token) return token;
 
-        token = "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";
+        token = "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";
         if (token) {
           localStorage.setItem("openai-token", token);
           return token;
         }
       }
-
       async function getApiUrl() {
         if (getApiUrl.url) return getApiUrl.url;
         try {
-          const response = await fetch("https://chat.longern.com/api/completions", {
+          const response = await fetch("api/completions", {
             method: "OPTIONS",
           });
           if (response.status !== 200) throw new Error();
-          getApiUrl.url = "https://chat.longern.com/api/completions";
+          getApiUrl.url = "/api/completions";
           const corsHeaders = (
             response.headers.get("Access-Control-Allow-Headers") || ""
           ).toLowerCase();
@@ -185,7 +184,7 @@
 
       async function complete(messages, token, progressCallback) {
         const headers = { "Content-Type": "application/json" };
-        if (getApiUrl.tokenRequired) headers.Authorization = `Bearer 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`;
+        if (getApiUrl.tokenRequired) headers.Authorization = `Bearer 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`;
         const response = await fetch(await getApiUrl(), {
           method: "POST",
           headers: headers,
