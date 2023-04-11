@@ -1,0 +1,14 @@
+{
+  "name": "tor-gpt",
+  "version": "1.0.0",
+  "description": "Tor-gpt chat using AI",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "openai": "^0.10.2"
+  }
+}
