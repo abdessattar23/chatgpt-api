@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="description" content="ChatGPT API Demo" />
     <meta name="viewport" content="width=device-width, height=device-height" />
-    <title>OpenAI Chat</title>
+    <title>Tor GPT</title>
     <style>
       * {
         box-sizing: border-box;
@@ -106,6 +106,8 @@
       }
       .chat-container .message {
         padding: 2px 16px;
+        right:0;
+        
       }
       .chat-container .assistant {
         background-color: #f0f0f0;
@@ -122,9 +124,9 @@
         max-width: 768px;
         padding: 8px;
         border-width: 1px;
-        border-color: rgba(0, 0, 0, 0.1);
+        border-color: #333;
         border-radius: 6px;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
       }
     </style>
   </head>
@@ -155,7 +157,7 @@
         let token = localStorage.getItem("openai-token");
         if (token) return token;
 
-        token = prompt("Please enter your OpenAI API key");
+        token = "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";
         if (token) {
           localStorage.setItem("openai-token", token);
           return token;
