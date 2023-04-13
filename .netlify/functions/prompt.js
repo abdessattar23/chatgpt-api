@@ -28,7 +28,7 @@ const max_tokens =5000;
 
 return {
 statusCode: 200,
-body: text
+body: JSON.stringify(text)
 };
 
 } catch (error) {
