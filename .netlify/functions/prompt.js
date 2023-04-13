@@ -38,3 +38,5 @@ return {
 statusCode: 500,
 body: 'Error'
 };
+}
+}};
