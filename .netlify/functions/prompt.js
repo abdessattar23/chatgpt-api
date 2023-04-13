@@ -11,7 +11,7 @@ const temperature = 0.5;
 const max_tokens =5000;
 
 
- try {
+try {
     const response = await axios.post(apiEndpoint, {
       prompt,
       model,
@@ -26,20 +26,21 @@ const max_tokens =5000;
 
     const text = response.data.choices[0].text;
 
-return {
-statusCode: 200,
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(text)
-};
+    return {
+      statusCode: 200,
+      headers: {
+        'Content-Type': 'text/plain',
+      },
+      body: JSON.stringify(text),
+    };
+  } catch (error) {
+    console.error(error);
 
-} catch (error) {
-console.error(error);
-
-return {
-statusCode: 500,
-body: error
-};
-}
-};
+    return {
+      statusCode: 500,
+      headers: {
+        'Content-Type': 'text/plain',
+      },
+      body: error.message,
+    };
+  }
