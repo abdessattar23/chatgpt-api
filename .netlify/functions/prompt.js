@@ -28,7 +28,10 @@ const max_tokens =5000;
 
 return {
 statusCode: 200,
-body: JSON.stringify(text)
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(text)
 };
 
 } catch (error) {
