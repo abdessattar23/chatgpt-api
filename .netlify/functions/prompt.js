@@ -10,7 +10,7 @@ const model = 'gpt-3.5-turbo';
 const temperature = 0.5;
 const max_tokens =5000;
 
-try {
+
  try {
     const response = await axios.post(apiEndpoint, {
       prompt,
@@ -39,4 +39,4 @@ statusCode: 500,
 body: 'Error'
 };
 }
-}};
+};
