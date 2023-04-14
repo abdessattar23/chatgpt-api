@@ -13,10 +13,10 @@ const max_tokens =5000;
 
 try {
     const response = await axios.post(apiEndpoint, {
-      prompt,
-      model,
-      temperature,
-      max_tokens: maxTokens
+      prompt: prompt,
+      model: model,
+      temperature: temperature,
+      max_tokens: max_tokens
     }, {
       headers: {
         'Content-Type': 'application/json',
