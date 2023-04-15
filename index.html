@@ -159,9 +159,8 @@
           const urlll = "https://zesty-zabaione-03ac93.netlify.app/.netlify/functions/chat?prompt=";
         return urlll;
       }
-const inputBox = document.getElementById("input-box");
-const chatUrl = "https://zesty-zabaione-03ac93.netlify.app/.netlify/functions/chat2?prompt=";
-
+const inputBox;
+const chatUrl;
 function handleFetchResponse(response) {
   const jsonResponse = JSON.parse(response);
   const message = jsonResponse.choices[0].message;
@@ -180,6 +179,8 @@ function handleFetchResponse(response) {
 }
 
 function fetchChatResponse() {
+inputBox = document.getElementById("input-box");
+chatUrl = "https://zesty-zabaione-03ac93.netlify.app/.netlify/functions/chat2?prompt=";
   const url = chatUrl + encodeURIComponent(inputBox.value);
   fetch(url)
     .then(response => response.text())
