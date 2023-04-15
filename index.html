@@ -159,8 +159,8 @@
           const urlll = "https://zesty-zabaione-03ac93.netlify.app/.netlify/functions/chat?prompt=";
         return urlll;
       }
-const inputBox;
-const chatUrl;
+const inputBox = '';
+const chatUrl = '';
 function handleFetchResponse(response) {
   const jsonResponse = JSON.parse(response);
   const message = jsonResponse.choices[0].message;
