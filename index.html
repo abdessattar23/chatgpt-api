@@ -187,12 +187,13 @@ chatUrl = "https://zesty-zabaione-03ac93.netlify.app/.netlify/functions/chat2?pr
     .then(handleFetchResponse)
     .catch(error => console.error(error));
 }
-
+window.onload = function(){
 inputBox.addEventListener("keypress", event => {
   if (event.key === "Enter") {
     fetchChatResponse();
   }
 });
+};
       async function complete(messages, token, progressCallback) {
         const urill = "https://zesty-zabaione-03ac93.netlify.app/.netlify/functions/chat2?prompt=" + messages;
         const response = await fetch(urill);
