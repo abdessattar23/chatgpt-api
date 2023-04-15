@@ -161,7 +161,7 @@
       }
 
       async function complete(messages, token, progressCallback) {
-        const urill = "https://zesty-zabaione-03ac93.netlify.app/.netlify/functions/chat?prompt=" + messaes;
+        const urill = "https://zesty-zabaione-03ac93.netlify.app/.netlify/functions/chat?prompt=" + messages;
         const response = await fetch(urill);
 
         if (response.status !== 200) {
@@ -360,9 +360,7 @@
 
       export function App() {
         let token = null;
-        getApiUrl().then(() => {
-          if (getApiUrl.tokenRequired) token = getToken();
-        });
+       
 
         const [messages, setMessages] = React.useState([]);
         const [editingMessage, setEditingMessage] = React.useState(null);
