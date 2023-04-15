@@ -173,7 +173,7 @@ function handleFetchResponse(response) {
   if (role === "assistant") {
     div.innerHTML = content;
   } else {
-    div.innerHTML = inputBox.value;
+    div.innerHTML = document.getElementById("input-box").value;
   }
   chatContainer.appendChild(div);
 }
@@ -181,7 +181,7 @@ function handleFetchResponse(response) {
 function fetchChatResponse() {
 inputBox = document.getElementById("input-box");
 chatUrl = "https://zesty-zabaione-03ac93.netlify.app/.netlify/functions/chat2?prompt=";
-  const url = chatUrl + encodeURIComponent(inputBox.value);
+  const url = chatUrl + encodeURIComponent(document.getElementById("input-box").value);
   fetch(url)
     .then(response => response.text())
     .then(handleFetchResponse)
