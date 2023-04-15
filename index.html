@@ -153,47 +153,16 @@
     ></script>
     <script type="module">
       function getToken() {
-        // Try localStorage first
-        let token = localStorage.getItem("openai-token");
-        if (token) return token;
-
-        token = process.env.OPENAI;
-        if (token) {
-          localStorage.setItem("openai-token", token);
-          return token;
-        }
+        
       }
-      async function getApiUrl() {
-        if (getApiUrl.url) return getApiUrl.url;
-        try {
-          const response = await fetch("api/completions", {
-            method: "OPTIONS",
-          });
-          if (response.status !== 200) throw new Error();
-          getApiUrl.url = "/api/completions";
-          const corsHeaders = (
-            response.headers.get("Access-Control-Allow-Headers") || ""
-          ).toLowerCase();
-          getApiUrl.tokenRequired = corsHeaders.includes("authorization");
-        } catch (e) {
-          getApiUrl.url = "https://api.openai.com/v1/chat/completions";
-          getApiUrl.tokenRequired = true;
-        }
-        return getApiUrl.url;
+      function getApiUrl() {
+          const urlll = "https://zesty-zabaione-03ac93.netlify.app/.netlify/functions/chat?prompt=";
+        return urlll;
       }
 
       async function complete(messages, token, progressCallback) {
-        const headers = { "Content-Type": "application/json" };
-        if (getApiUrl.tokenRequired) headers.Authorization = `Bearer` + process.env.OPENAI;
-        const response = await fetch(await getApiUrl(), {
-          method: "POST",
-          headers: headers,
-          body: JSON.stringify({
-            model: "gpt-3.5-turbo",
-            messages: messages,
-            stream: true,
-          }),
-        });
+        const urill = "https://zesty-zabaione-03ac93.netlify.app/.netlify/functions/chat?prompt=" + messaes;
+        const response = await fetch(urill);
 
         if (response.status !== 200) {
           throw new Error(await response.text());
@@ -402,7 +371,7 @@
 
         return [
           React.createElement("header", { key: "header" }, [
-            React.createElement("span", { key: "title" }, "OpenAI Chat"),
+            React.createElement("span", { key: "title" }, "Tor GPT"),
             React.createElement(
               "button",
               {
@@ -489,7 +458,7 @@
                   try {
                     const completion = await complete(
                       userMessages,
-                      token,
+                      "hello",
                       (message) => setEditingMessage({ ...message })
                     );
                     setMessages((messages) => [...messages, completion]);
